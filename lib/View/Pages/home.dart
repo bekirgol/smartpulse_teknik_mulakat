@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import 'package:smartpulse_teknik_test/Constand/constand.dart';
 import 'package:smartpulse_teknik_test/Constand/styles.dart';
 import 'package:smartpulse_teknik_test/Model/productPh.dart';
 import 'package:smartpulse_teknik_test/Viewmodel/Provider/home.dart';
@@ -62,10 +63,12 @@ class HomePage extends StatelessWidget {
         shrinkWrap: true,
         itemCount: 24,
         itemBuilder: (BuildContext context, int index) {
-          String date =
-              index < 10 ? "03.04.2022 0$index:00" : "03.04.2022 $index:00";
-          String contractIndex =
-              index < 10 ? "PH2204030$index" : "PH220403$index";
+          String date = index < 10
+              ? "${Constand.formattedDate2} 0$index:00"
+              : "${Constand.formattedDate2} $index:00";
+          String contractIndex = index < 10
+              ? "${Constand.concract}0$index"
+              : "${Constand.concract}$index";
           ProductPh product = provider.getProduct(contractIndex);
           return Container(
             padding:
